@@ -5,13 +5,13 @@ const coDirectors = [
   {
     name: "Diana Luu",
     classYear: "Class of 2028",
-    email: "diana.luu@princeton.edu",
+    email: "dianaluu@princeton.edu",
     major: "Molecular Biology"
   },
   {
     name: "Hellen Luo",
     classYear: "Class of 2028",
-    email: "hellen.luo@princeton.edu",
+    email: "hellenluo@princeton.edu",
     major: "Computer Science (A.B.)"
   },
 ];
