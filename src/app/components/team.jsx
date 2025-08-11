@@ -27,7 +27,7 @@ const members = [
 
 export default function Team() {
   return (
-    <section id="team" className="flex flex-col items-center justify-center py-20 bg-transparent">
+    <section id="team" className="flex flex-col items-center justify-center py-10">
       <h2 className="text-4xl font-bold mb-8 text-center">Team</h2>
       <div className="w-full max-w-2xl flex flex-col items-center">
         {/* Co-Directors */}

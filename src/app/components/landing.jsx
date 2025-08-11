@@ -35,10 +35,6 @@ export default function Landing() {
     linesRef.current.forEach((el, i) => {
       if (el) {
         el.classList.remove("slide-in-up");
-        // Reset to initial state for re-animation
-        // (in case of font swap, re-animate)
-        // Force reflow to restart animation
-        // eslint-disable-next-line no-unused-expressions
         el.offsetHeight;
         setTimeout(() => {
           el.classList.add("slide-in-up");
@@ -47,7 +43,6 @@ export default function Landing() {
     });
   }, [fontOrderIndex, showWelcome]);
 
-  // Font swap logic and showWelcome trigger
   useEffect(() => {
     let swapCount = 0;
     let intervalId = null;
@@ -64,9 +59,6 @@ export default function Landing() {
         });
       }, FONT_SWAP_INTERVAL);
 
-      // 2 swaps, so 3 total font orders (initial + 2 swaps)
-      // Each swap takes FONT_SWAP_INTERVAL ms
-      // After the last animation, show the welcome message
       const totalDuration = FONT_SWAP_INTERVAL * 2;
       timeoutId = setTimeout(() => {
         setShowWelcome(true);
@@ -79,19 +71,15 @@ export default function Landing() {
     }
   }, [showWelcome]);
 
-  // When showWelcome becomes true, trigger fade-in for welcome message
   useEffect(() => {
     if (showWelcome) {
-      // Allow a tick for the DOM to render the element with fade-in-welcome-init,
-      // then switch to fade-in-welcome to trigger the CSS transition.
       const fadeTimeout = setTimeout(() => {
         setWelcomeVisible(true);
-      }, 20); // 20ms is enough for next render tick
+      }, 20); 
       return () => clearTimeout(fadeTimeout);
     }
   }, [showWelcome]);
 
-  // Compute the current font order by rotating the fontClasses array
   const getFontOrder = () => {
     const order = [];
     for (let i = 0; i < fontClasses.length; i++) {
