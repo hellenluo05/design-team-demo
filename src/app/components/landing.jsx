@@ -21,7 +21,7 @@ const fontClasses = [
 
 const ANIMATION_DURATION = 0.65; // seconds
 const ANIMATION_STAGGER = 0.15; // seconds
-const FONT_SWAP_INTERVAL = (ANIMATION_DURATION + ANIMATION_STAGGER * 4 + 0.2) * 1000; // ms, a bit of buffer
+const FONT_SWAP_INTERVAL = (ANIMATION_DURATION + ANIMATION_STAGGER * 4 + 0.2) * 1000; // ms
 
 export default function Landing() {
   const linesRef = useRef([]);
@@ -29,7 +29,6 @@ export default function Landing() {
   const [showWelcome, setShowWelcome] = useState(false);
   const [welcomeVisible, setWelcomeVisible] = useState(false);
 
-  // Animate in on mount and on font order change
   useEffect(() => {
     if (showWelcome) return;
     linesRef.current.forEach((el, i) => {

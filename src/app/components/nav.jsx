@@ -5,7 +5,7 @@ import Image from "next/image";
 const menuItems = [
   { href: "#team", label: "Team", scroll: true },
   { href: "#gallery", label: "Gallery", scroll: true },
-  { href: "#request", label: "Start Your Request", scroll: true }, // Change to anchor link
+  { href: "#request", label: "Start Your Request", scroll: true }, 
 ];
 
 function getNavHeight() {
@@ -16,7 +16,6 @@ function getNavHeight() {
   return 72; 
 }
 
-// Custom smooth scroll with slower speed
 function slowScrollTo(targetY, duration = 1200) {
   const startY = window.scrollY || window.pageYOffset;
   const distance = targetY - startY;
