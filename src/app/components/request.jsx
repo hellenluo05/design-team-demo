@@ -12,6 +12,7 @@ export default function RequestForm() {
     technicalSpecs: "",
     dateNeeded: "",
     inspiration: "",
+    colors: ["", "", "", "", ""], // up to 5 colors
   });
   const [submitted, setSubmitted] = useState(false);
   const [acknowledged, setAcknowledged] = useState(false);
@@ -22,6 +23,12 @@ export default function RequestForm() {
 
   const handleCheckboxChange = (e) => {
     setAcknowledged(e.target.checked);
+  };
+
+  const handleColorChange = (index, value) => {
+    const newColors = [...form.colors];
+    newColors[index] = value;
+    setForm({ ...form, colors: newColors });
   };
 
   const handleSubmit = (e) => {
@@ -148,6 +155,28 @@ export default function RequestForm() {
                 Links to designs you like (optional but very useful)
               </span>
             </label>
+            <div className="flex flex-col text-black font-medium">
+              <span>Preferred Colors</span>
+              <div className="flex flex-row gap-3 mt-2">
+                {form.colors.map((color, idx) => (
+                  <div key={idx} className="flex flex-col items-center">
+                    <input
+                      type="color"
+                      value={color || "#ffffff"}
+                      onChange={e => handleColorChange(idx, e.target.value)}
+                      className="w-10 h-10 border border-black"
+                      aria-label={`Color ${idx + 1}`}
+                    />
+                    <span className="text-xs mt-1 text-black">
+                      {color ? color.toUpperCase() : ""}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <span className="text-xs text-black font-normal mt-1">
+                Pick up to five colors you would like us to use (optional)
+              </span>
+            </div>
             <label className="flex items-center gap-2 text-black font-medium">
               <input
                 type="checkbox"
