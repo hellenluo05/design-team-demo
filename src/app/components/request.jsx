@@ -121,7 +121,7 @@ export default function RequestForm() {
                 required
                 rows={2}
                 className="mt-1 px-3 py-2 border border-black rounded-none bg-white text-black focus:outline-none resize-none"
-                placeholder="e.g. 1080x1920px, PDF, PNG, etc."
+                placeholder="e.g., 1080x1920px, PDF, PNG"
               />
               <span className="text-xs text-black font-normal mt-1">
                 Please specify any required dimensions, file formats, or other technical requirements.
@@ -149,7 +149,7 @@ export default function RequestForm() {
                 value={form.inspiration}
                 onChange={handleChange}
                 className="mt-1 px-3 py-2 border border-black rounded-none bg-white text-black focus:outline-none"
-                placeholder="Links to designs you like"
+                placeholder="e.g., Behance portfolio, Pinterest board, favorite brand site"
               />
               <span className="text-xs text-black font-normal mt-1">
                 Links to designs you like (optional but very useful)
